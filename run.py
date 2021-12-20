@@ -68,6 +68,8 @@ def predict(data):
 
 
 if __name__ == "__main__":
+    if sys.argv[2] == 'True':
+        train_model()
     predict(sys.argv[1])
 
 

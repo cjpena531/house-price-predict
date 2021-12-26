@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Copatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <form id="form_id" onsubmit="sub(event)">
+        <div class="form-group">
+            <h1>House Prices Prediction</h1>
+            <div class="element">
+                <label for="inputPassword5">Bedrooms</label>
+                <input type="number" min="0" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Bathrooms</label>
+                <input type="number" min="0" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Surface Total</label>
+                <input type="number" min="0" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Surface Covered</label>
+                <input type="number" min="0" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Rooms</label>
+                <input type="number" min="0" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Latitude</label>
+                <input type="number" min="-90" max="90" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Longitude</label>
+                <input type="number" min="-180" max="180" class="form-control" placeholder=0 value=0>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Country</label>
+                <input type="text" class="form-control" placeholder='Argentina'>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">City</label>
+                <input type="text" class="form-control" placeholder='Buenos Aires'>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Property Type</label>
+                <input type="text" class="form-control" placeholder='House'>
+            </div>
+            <div class="element">
+                <label for="inputPassword5">Operation Type</label>
+                <input type="text" class="form-control" placeholder='For Sale'>
+            </div>
+
+
+        </div>
+        <input type="submit">
+    </form>
+    <p id="demo"></p>
+
+</body>
+
+</html>
+
+<style>
+    #form_id {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        width: 50%;
+        margin-top: 50px;
+    }
+
+    #demo {
+        text-align: center;
+        color: firebrick;
+        font-size: larger;
+        font-weight: 900;
+
+    }
+</style>
+
+<script>
+    let out = ""
+    function loadDoc(data) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            console.log(this.responseText)
+            if (this.readyState == 4 && this.status == 200) {
+                out = JSON.parse(this.responseText).message
+                document.getElementById("demo").innerHTML = ` Result => ${out}`;
+            }
+        };
+        xhttp.open("POST", "http://127.0.0.1:5000/.", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(`id=${data}`);
+    }
+    var myForm = ""
+    let ouput_data = []
+    function sub(e) {
+        ouput_data = []
+        e.preventDefault();
+        console.log("Done")
+        myForm = document.getElementById('form_id');
+        for (let i = 0; i < 11; i++) {
+            ouput_data.push(myForm.elements[i].value)
+        }
+        senddata(ouput_data)
+    }
+    function senddata(dat) {
+        let temp = "[" + dat.toString() + "]"
+        loadDoc(temp)
+
+    }
+</script>

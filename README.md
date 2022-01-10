@@ -32,17 +32,20 @@ This project has four major parts :
 
 ## Running the project
 
-Ensure that you are in the project home directory. Create the machine learning model by running below command -
-python run.py
+Ensure that you are in the project home directory. Create the machine learning model by running below command
+
+`python run.py`
 
 This would create a serialized version of our model into a file model.pkl
 
 Run app.py using below command to start Flask API
-python app.py
+
+`python app.py`
 
 Edit data in request.py with the information on the house that you'd like to predict the price of.
 Open up another terminal and run the below command to get the prediction
-python request.py
+
+`python request.py`
 
 Or if you would like to enter the data manually, you can open the file index.html and enter house information there. 
 

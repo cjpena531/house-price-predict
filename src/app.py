@@ -1,11 +1,11 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
-import numpy as np
 import pickle
 
 app = Flask(__name__)
 api = Api(app)
+
 
 model = pickle.load(open('models/rfr_model.pkl', 'rb'))
 model_cols = pickle.load(open('models/rfr_model_columns.pkl', 'rb'))
@@ -98,4 +98,4 @@ api.add_resource(predict, '/')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

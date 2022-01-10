@@ -9,17 +9,19 @@ The data for this project was found from Kaggle:
   - 25 columns
  
 The columns used and the structure for inputting data for this model, is as follows:
-- bedrooms: int, number of bedrooms,
-- bathrooms: int, number of bathrooms, 
-- surface_total: int, total area in m^2, 
-- surface_covered: int, total covered in m^2, 
-- rooms: int, number of rooms, 
-- lat: int, latitude, 
-- lon: int, longitude, 
-- l1: str, Administrative level 1, usually country, 
-- l2: str, Administrative level 2, usually province, 
-- property_type: str, type of property, ex. House, Apartment, Penthouse, Office, etc. 
-- operation_type: str, Type of offer, ex. For Rent, For Sale, or For Sublease
+Column | Type | Description
+------ | ---- | -----------
+bedrooms | int | number of bedrooms
+bathrooms | int | number of bathrooms, 
+surface_total | int | total area in m^2, 
+surface_covered | int | total covered in m^2, 
+rooms | int | number of rooms, 
+lat | int | latitude, 
+lon | int | longitude, 
+l1 | str | Administrative level 1, usually country, 
+l2 | str | Administrative level 2, usually province, 
+property_type | str | type of property, ex. House, Apartment, Penthouse, Office, etc. 
+operation_type | str | Type of offer, ex. For Rent, For Sale, or For Sublease
 
 ## Project Structure
 
